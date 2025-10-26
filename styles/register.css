@@ -1,0 +1,44 @@
+.borderblue {
+  border-top: 4px solid;
+  border-bottom: 4px solid;
+  border-color: rgb(33,150,243,1);
+}
+.lsnavbtn{
+  color: grey;
+}
+.lsnavbtn{
+  text-decoration: none;
+  color: grey;
+}
+.lsnavbtn:hover{
+  color: rgb(33,150,243);
+}
+.lsnavbtn:active{
+  color: rgba(33,150,243,0.3);
+}
+#transition-effect-1{
+  height: 70px;
+  overflow-y: hidden;
+  transition: .5s;
+}
+#transition-effect-2{
+  height: 70px;
+  overflow-y: hidden;
+  transition: .5s;
+}
+#transition-effect-3{
+  height: 70px;
+  overflow-y: hidden;
+  transition: .5s;
+}
+#transition-effect-4{
+  height: 0;
+  overflow-y: hidden;
+  transition: .5s;
+}
+#formhead{
+  transition: all .5s;
+}
+#submitbtn{
+  transition: all .5s;
+}

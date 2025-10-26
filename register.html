@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" lang="en">
+    <title>mychat/register</title>
+    <link href="styles/general.css" rel="stylesheet" type="text/css"/>
+    <link href="styles/register.css" rel="stylesheet" type="text/css">
+    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link rel="icon" href="images/logo.png"/>
+    <style type="text/css">
+      body{
+        margin: 0;
+        padding: 0;
+        background: url('images/img001.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body> 
+    <div class="position-absolute top-50 start-50 translate-middle col-11 col-md-6 p-3 pos-tic shadow rounded-3 borderblue">
+      <form>
+        <h5 class="card-title text-center fw-bolder pt-5" id="formhead">Sign Up</h5>
+          <div class="container mb-3">
+            <div id="transition-effect-1">
+              <label for="fname" id="text-fn" class="form-label fw-light mt-1">Name</label>
+              <input type="text" class="form-control border-1 bkg-sec-light" id="label-fn" required/>
+            </div>
+            <div class="valid-tooltip">good !</div>
+            <label for="mobilenumber" class="form-label fw-light mt-1">Mobile no</label>
+            <input type="number" class="form-control bkg-sec-light border-1 " id="mobilenumber" required/>
+            <div class="valid-tooltip">good !</div>
+            <label for="mpassword" class="form-label fw-light mt-1">Password</label>
+            <input type="password" class="form-control border-1 bkg-sec-light" id="mpassword" required/>
+            <div class="valid-tooltip">good !</div>
+            <div id="transition-effect-2">
+              <label for="cnpassword" id="text-cp" class="form-label fw-light mt-1">Confirm Password</label>
+              <input type="password" class="form-control border-1 bkg-sec-light" id="label-cp" required/>
+              <div class="valid-tooltip">good !</div>
+            </div>
+            
+          </div>
+          <div class="container" >
+            <div class="col-6 mt-1">
+              <form class=" form-control">
+                 <input type="checkbox" class="form-check-input" /><label class="text-dark form-check-label fw-light ps-1">Remember me</label><br><br>
+              </form>
+              <div id="transition-effect-3">
+                <button class="btn bg-danger text-light text-center" id="submitbtn" type="submit" onclick="mainPage()">Register</button>
+              </div>
+              <div id="transition-effect-4">
+                  <button class="btn bg-danger text-light text-center" id="submitbtn" type="submit" onclick="mainPage()">Login</button>
+              </div>
+              <div class="pt-2 fw-light" >
+                <a class="lsnavbtn" onclick="fadeIn()">Register</a> / <a class="lsnavbtn" onclick="fadeOut()">Login</a>
+              </div>
+            </div>
+          </div>
+        </form>
+    </div>
+    <script type="text/javascript" >
+      function mainPage(){
+        const fullName = document.getElementsByName('fname').value;
+        const mobileNumber = document.getElementById('mobilenumber').value;
+        const password = document.getElementById('mpassword').value;
+
+
+        window.open('main.html','_self');
+      }
+      // When the login nav is clicked, this happens
+      function fadeOut(){
+       let elem = document.getElementById("transition-effect-1");
+       let elem_2 = document.getElementById("transition-effect-2");
+       let elem_3 = document.getElementById("transition-effect-3");
+       let elem_4 = document.getElementById("transition-effect-4");
+
+       elem.style.height = 0;
+       elem_2.style.height = 0;
+       elem_3.style.height = 0;
+       elem_4.style.height = "70px";
+       
+       document.getElementById('formhead').innerHTML = 'login';
+      }
+      
+      //when the register nav  is clicked, this happens
+      function fadeIn(){
+       let elem = document.getElementById("transition-effect-1");
+       let elem_2 = document.getElementById("transition-effect-2");
+       let elem_3 = document.getElementById("transition-effect-3");
+       let elem_4 = document.getElementById("transition-effect-4");
+
+       
+       elem.style.height = '70px';
+       elem_2.style.height = '70px';
+       elem_3.style.height = '70px';
+       elem_4.style.height = 0;
+       
+       document.getElementById('formhead').innerHTML = 'Register'
+      }
+    </script>
+  </body>
+</html>

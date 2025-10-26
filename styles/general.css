@@ -1,0 +1,20 @@
+.bkg-dark{
+  background-color: #0A1014 !important;
+  color: white !important; 
+}
+.bkg-light{
+  background-color: #ffffff !important;
+  color: black !important;
+}
+.bkg-sec-light{
+  background-color: #ffffffb5 !important;
+  color: black !important;
+}
+.bkg-sec-dark{
+  background-color: ##ffffffb5 !important;
+  color: white !important;
+}
+.border-blue{
+  border-top: #2196f3 1px solid;
+  border-bottom: #2196f3 1px solid;
+}
