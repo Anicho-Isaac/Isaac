@@ -1,20 +1,87 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>welcome</title>
-    <link rel="stylesheet" type="text/css" href="styles/upload.css"/>
-    <style rel="text/css">
-      body{
-        margin: 0;
-        padding: 0;
-        background: url('images/img001.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 100vh;
-      }
-    </style>
-  </head>
-  <body>
-    
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image Crop Example</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+  
+  <!-- Upload CSS -->
+  <link href="styles/upload.css" rel="stylesheet">
+
+  <!-- Cropper.js CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/cropperjs@1.6.2/dist/cropper.min.css" rel="stylesheet">
+  
+</head>
+<body>
+
+<div class=" dark-body ">
+  <div class=" p-4 border-dark">
+    <h3 class="text-center text-white mb-4">Upload Your Image</h3>
+
+    <div class="mb-3 border">
+      <input type="file" id="imageInput" accept="image/*" class="form-control">
+    </div>
+
+    <div class="text-center">
+      <img id="preview" alt="Choose an image to preview">
+    </div>
+
+    <div class="text-center mt-3">
+      <button id="cropBtn" class="btn btn-danger" disabled>Crop Image</button>
+    </div>
+
+    <div class="cropped-result">
+      <img id="cropped-image" alt="">
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="bootstrap/js/bootstrap.bundle.js"></script>
+
+<!-- Cropper.js -->
+<script src="https://cdn.jsdelivr.net/npm/cropperjs@1.6.2/dist/cropper.min.js"></script>
+
+<script>
+  const imageInput = document.getElementById('imageInput');
+  const preview = document.getElementById('preview');
+  const cropBtn = document.getElementById('cropBtn');
+  const croppedImage = document.getElementById('cropped-image');
+
+  let cropper;
+
+  imageInput.addEventListener('change', (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        preview.src = reader.result;
+        if (cropper) cropper.destroy(); // remove old cropper
+        cropper = new Cropper(preview, {
+          aspectRatio: 1, // square crop — change to 16/9 or NaN for free crop
+          viewMode: 1,
+          movable: true,
+          zoomable: true,
+          rotatable: true,
+          scalable: true,
+        });
+        cropBtn.disabled = false;
+      };
+      reader.readAsDataURL(file);
+    }
+  });
+
+  cropBtn.addEventListener('click', () => {
+    const canvas = cropper.getCroppedCanvas({
+      width: 300,
+      height: 300,
+    });
+    croppedImage.src = canvas.toDataURL('image/png');
+  });
+</script>
+
+</body>
 </html>

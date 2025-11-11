@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Conference Room</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Video Conference</h2>
+  <div id="videoContainer">
+    <video id="localVideo" autoplay muted></video>
+    <video id="remoteVideo" autoplay></video>
+  </div>
+
+  <div class="chat">
+    <h3>Chat Box</h3>
+    <div id="chatMessages"></div>
+    <input type="text" id="chatInput" placeholder="Type message...">
+    <button id="sendBtn">Send</button>
+  </div>
+
+  <script src="call.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>
+
+<!-- 👉 Later, we will use Firebase to connect two users and show the remote video.
+
+
+🌍 Step 10: Host it (GitHub + Firebase Hosting)
+When done:
+
+Create a GitHub account (if you don’t have one).
+
+Push your project to GitHub using SPCK’s “Publish to GitHub” option.
+
+If you want, set up Firebase Hosting so people can visit your site online.
+
+🚀 Step 11: Next Upgrade (after base works)
+Later, you can add:
+
+Real-time chat (store messages in Firebase Firestore).
+
+Real conference linking with Firebase WebRTC signaling.
+
+Mute/unmute buttons, screen share, and user list.
+
+Would you like me to continue from here to make the real working video call connection (using Firebase WebRTC) next — so people can actually see and talk to each other live?
+Or should I first finish the real-time chat messages (using Firebase) part? >
+-->
